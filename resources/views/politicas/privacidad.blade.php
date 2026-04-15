@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad - SOAT Mundial</title>
+    <title>Política de privacidad — {{ config('app.name') }}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -25,10 +25,10 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo-section h1 {
-            color: white;
-            margin: 0;
-            font-size: 1.5em;
+        .logo-section img {
+            display: block;
+            max-height: 48px;
+            width: auto;
         }
         .header-contacts a {
             color: white;
@@ -111,7 +111,9 @@
     <header class="header-soat">
         <div class="header-content">
             <div class="logo-section">
-                <h1>SOAT Mundial</h1>
+                <a href="{{ route('welcome') }}" style="display:inline-block;line-height:0;">
+                    <img src="{{ asset('images/logos/logo-seguro-soat-blanco.png') }}" alt="{{ config('app.name') }}" width="200" height="56" decoding="async">
+                </a>
             </div>
             <div class="header-contacts">
                 <a href="{{ route('welcome') }}">Volver al Inicio</a>
@@ -126,7 +128,7 @@
             <p><strong>Última actualización:</strong> {{ date('d/m/Y') }}</p>
 
             <h2>1. Información que Recopilamos</h2>
-            <p>Seguros Mundial recopila información personal que usted nos proporciona directamente cuando utiliza nuestros servicios, incluyendo:</p>
+            <p>{{ config('app.name') }} recopila información personal que usted nos proporciona directamente cuando utiliza nuestros servicios, incluyendo:</p>
             <ul>
                 <li>Información de identificación personal (nombre, tipo y número de documento)</li>
                 <li>Información de contacto (correo electrónico, teléfono)</li>
@@ -171,7 +173,7 @@
                 <a href="{{ route('politica.privacidad') }}">Política de Privacidad</a>
                 <a href="{{ route('terminos.condiciones') }}">Términos y Condiciones</a>
             </div>
-            <p style="margin: 0; font-size: 0.9em;">© {{ date('Y') }} Seguros Mundial. Todos los derechos reservados.</p>
+            <p style="margin: 0; font-size: 0.9em;">© {{ date('Y') }} {{ config('app.name') }}. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>

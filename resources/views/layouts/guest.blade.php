@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $pageTitle ?: (config('app.name', 'SOAT Mundial') . ' — Acceso') }}</title>
+    <title>{{ $pageTitle ?: (config('app.name', 'Seguro SOAT') . ' — Acceso') }}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,15 +79,33 @@
             color: #00a651;
             text-decoration: underline;
         }
+
+        .guest-soat__brand-logo {
+            display: block;
+            margin: 0 auto 0.75rem;
+            max-height: 72px;
+            width: auto;
+            max-width: min(280px, 85vw);
+            object-fit: contain;
+        }
     </style>
 </head>
 <body class="guest-soat font-sans text-gray-900 antialiased">
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-8 sm:pt-0 px-4 pb-10">
         <div class="mb-8 text-center">
-            <p class="text-white/90 text-sm font-semibold tracking-wide uppercase mb-1">Seguros Mundial</p>
-            <h1 class="text-4xl sm:text-5xl font-bold text-white drop-shadow-sm">SOAT</h1>
+            <a href="{{ route('welcome') }}" class="inline-block" aria-label="{{ config('app.name', 'Seguro SOAT') }} — inicio">
+                <img
+                    src="{{ asset('images/logos/logo-seguro-soat-blanco.png') }}"
+                    alt="{{ config('app.name', 'Seguro SOAT') }}"
+                    class="guest-soat__brand-logo"
+                    width="280"
+                    height="80"
+                    decoding="async"
+                >
+            </a>
+            <h1 class="text-2xl sm:text-3xl font-bold text-white drop-shadow-sm">Panel administrativo</h1>
             <p class="text-white/85 text-center mt-2 max-w-sm mx-auto text-sm sm:text-base">
-                Panel administrativo · Gestión de registros y pólizas
+                Gestión de registros y pólizas
             </p>
         </div>
 

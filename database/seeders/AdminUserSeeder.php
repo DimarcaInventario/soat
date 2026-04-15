@@ -12,13 +12,13 @@ class AdminUserSeeder extends Seeder
      * Usuario para acceder al panel (/login).
      *
      * Credenciales por defecto (cámbialas en producción):
-     *   Correo: admin@soatmundial.local
+     *   Correo: admin@seguro-soat.local
      *   Contraseña: password
      */
     public function run()
     {
         User::firstOrCreate(
-            ['email' => 'admin@soatmundial.com'],
+            ['email' => 'admin@seguro-soat.local'],
             [
                 'name' => 'Administrador SOAT',
                 'password' => Hash::make('Soat@22'),

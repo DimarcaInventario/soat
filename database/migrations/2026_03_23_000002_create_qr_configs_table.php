@@ -15,7 +15,7 @@ class CreateQrConfigsTable extends Migration
     {
         Schema::create('qr_configs', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_comercio')->default('Seguros Mundial');
+            $table->string('nombre_comercio')->default('Seguro SOAT');
             $table->text('mensaje_pago')->nullable();
             $table->string('qr_image_path')->nullable();
             $table->boolean('activo')->default(true);

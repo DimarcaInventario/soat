@@ -1,4 +1,4 @@
-<x-guest-layout pageTitle="Iniciar sesión — SOAT Mundial">
+<x-guest-layout :pageTitle="'Iniciar sesión — ' . config('app.name')">
     <div class="card">
         <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Iniciar sesión</h2>
         <p class="text-center text-gray-500 mb-8">Accede al panel administrativo</p>

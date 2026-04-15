@@ -31,7 +31,7 @@ class QrConfig extends Model
         }
 
         return static::create([
-            'nombre_comercio' => 'Seguros Mundial',
+            'nombre_comercio' => 'Seguro SOAT',
             'mensaje_pago' => 'Escanea el código QR para completar tu pago.',
             'activo' => true,
         ]);

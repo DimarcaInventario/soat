@@ -92,7 +92,7 @@ class ClienteController extends Controller
                 'fecha_fin' => $fechaFin,
                 'valor' => $validated['valor'],
                 'estado' => $validated['estado'],
-                'aseguradora' => 'Seguros Mundial',
+                'aseguradora' => config('app.name', 'Seguro SOAT'),
             ]);
 
             DB::commit();
@@ -203,7 +203,7 @@ class ClienteController extends Controller
                     'fecha_fin' => $fechaFin,
                     'valor' => $validated['valor'],
                     'estado' => $validated['estado'],
-                    'aseguradora' => 'Seguros Mundial',
+                    'aseguradora' => config('app.name', 'Seguro SOAT'),
                 ]);
             }
 

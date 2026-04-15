@@ -5751,7 +5751,7 @@ function mapEstado(v) {
 function standaloneLabelToField(line) {
   var raw = String(line).trim();
   if (!raw || raw.startsWith('*')) return null;
-  if (raw.length > 100 && raw.includes('Seguros Mundial')) return null;
+  if (raw.length > 100 && /seguros?\s*mundial|segurosmundial|soat\s*mundial/i.test(raw)) return null;
   var n = normalizeKey(raw);
   if (n === 'datos del propietario' || n === 'datos del vehiculo' || n === 'datos de la poliza' || n.startsWith('datos del ') || n.startsWith('datos de la ')) {
     return null;

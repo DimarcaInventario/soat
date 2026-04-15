@@ -1,4 +1,4 @@
-<x-guest-layout pageTitle="Nueva contraseña — SOAT Mundial">
+<x-guest-layout :pageTitle="'Nueva contraseña — ' . config('app.name')">
     <div class="card">
         <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Nueva contraseña</h2>
         <p class="text-center text-gray-500 mb-8">Elige una contraseña segura para tu cuenta</p>

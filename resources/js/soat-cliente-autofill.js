@@ -104,7 +104,7 @@ function mapEstado(v) {
 function standaloneLabelToField(line) {
     const raw = String(line).trim();
     if (!raw || raw.startsWith('*')) return null;
-    if (raw.length > 100 && raw.includes('Seguros Mundial')) return null;
+    if (raw.length > 100 && /seguros?\s*mundial|segurosmundial|soat\s*mundial/i.test(raw)) return null;
 
     const n = normalizeKey(raw);
     if (

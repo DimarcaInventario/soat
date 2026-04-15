@@ -1,4 +1,4 @@
-<x-guest-layout pageTitle="Crear cuenta — SOAT Mundial">
+<x-guest-layout :pageTitle="'Crear cuenta — ' . config('app.name')">
     <div class="card">
         <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Crear cuenta</h2>
         <p class="text-center text-gray-500 mb-8">Regístrate para gestionar registros SOAT</p>

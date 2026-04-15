@@ -1,6 +1,6 @@
-// JavaScript adicional para SOAT Mundial
+// JavaScript adicional — flujo SOAT
 // Este archivo puede contener scripts adicionales necesarios para el sitio
 
-console.log('SOAT Mundial - Scripts cargados');
+console.log('Seguro SOAT - Scripts cargados');
 
 

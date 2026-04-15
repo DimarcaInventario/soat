@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultados de Consulta SOAT - SOAT Mundial</title>
+    <title>Resultados de consulta SOAT — {{ config('app.name') }}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -26,10 +26,10 @@
             align-items: center;
             flex-wrap: wrap;
         }
-        .logo-section h1 {
-            color: white;
-            margin: 0;
-            font-size: 1.5em;
+        .logo-section img {
+            display: block;
+            max-height: 48px;
+            width: auto;
         }
         .header-contacts {
             display: flex;
@@ -161,7 +161,9 @@
     <header class="header-soat">
         <div class="header-content">
             <div class="logo-section">
-                <h1>SOAT Mundial</h1>
+                <a href="{{ route('welcome') }}" style="display:inline-block;line-height:0;">
+                    <img src="{{ asset('images/logos/logo-seguro-soat-blanco.png') }}" alt="{{ config('app.name') }}" width="200" height="56" decoding="async">
+                </a>
             </div>
             <div class="header-contacts">
                 <a href="{{ route('welcome') }}">Nueva Consulta</a>
@@ -287,7 +289,7 @@
                 <a href="{{ route('politica.privacidad') }}">Política de Privacidad</a>
                 <a href="{{ route('terminos.condiciones') }}">Términos y Condiciones</a>
             </div>
-            <p style="margin: 0; font-size: 0.9em;">© {{ date('Y') }} Seguros Mundial. Todos los derechos reservados.</p>
+            <p style="margin: 0; font-size: 0.9em;">© {{ date('Y') }} {{ config('app.name') }}. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>

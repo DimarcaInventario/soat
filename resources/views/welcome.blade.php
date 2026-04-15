@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#FFFFFF">
-    <meta name="description" content="Compra SOAT Mundial sin complicaciones | SOAT Mundial®">
-    <meta property="og:title" content="Compra SOAT Mundial sin complicaciones | SOAT Mundial®">
-    <meta property="og:description" content="Compra SOAT Mundial sin complicaciones | SOAT Mundial®">
+    <meta name="description" content="Cotiza y compra tu SOAT en línea de forma sencilla | {{ config('app.name') }}">
+    <meta property="og:title" content="Cotiza y compra tu SOAT en línea | {{ config('app.name') }}">
+    <meta property="og:description" content="Cotiza y compra tu SOAT en línea de forma sencilla | {{ config('app.name') }}">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:creator" content="Pragma">
-    <meta name="twitter:title" content="Compra SOAT Mundial sin complicaciones | SOAT Mundial®">
-    <meta name="twitter:description" content="Compra SOAT Mundial sin complicaciones | SOAT Mundial®">
+    <meta name="twitter:title" content="Cotiza y compra tu SOAT en línea | {{ config('app.name') }}">
+    <meta name="twitter:description" content="Cotiza y compra tu SOAT en línea de forma sencilla | {{ config('app.name') }}">
     <meta name="facebook-domain-verification" content="jhv7d5k36irn4qu61nkhecksc73obb">
     
-    <title>Compra SOAT Mundial sin complicaciones | SOAT Mundial®</title>
+    <title>Cotiza y compra tu SOAT en línea | {{ config('app.name') }}</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -205,9 +205,9 @@
         .logo-image {
             display: block;
             height: auto;
-            max-height: 44px;
+            max-height: 90px;
             width: auto;
-            max-width: min(255px, 52vw);
+            max-width: min(330px, 56vw);
             object-fit: contain;
         }
 
@@ -438,11 +438,15 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Ocultar imagen de fondo en pantallas tipo celular */
+        /* Ilustración del banner también en tablet/móvil (tamaño y posición adaptados) */
         @media (max-width: 1279px) {
             .banner-section {
-                background-image: none;
-                background: linear-gradient(180deg, #0e618f 0, #003459 50%, #000717);
+                background-image:
+                    url('{{ asset('arte_banner_03.webp') }}'),
+                    linear-gradient(180deg, #0e618f 0, #003459 50%, #000717);
+                background-size: min(100vw, 560px) auto, 100% 100%;
+                background-position: center right, center center;
+                background-repeat: no-repeat, no-repeat;
                 justify-content: center;
             }
 
@@ -1342,8 +1346,8 @@
             }
 
             .logo-image {
-                max-height: 40px;
-                max-width: 180px;
+                max-height: 48px;
+                max-width: 230px;
             }
 
             .mobile-header-icons {
@@ -1402,6 +1406,8 @@
             .banner-section {
                 padding: 1.25rem 1rem 1.7rem;
                 min-height: auto;
+                background-size: min(100vw, 420px) auto, 100% 100%;
+                background-position: top right, center center;
             }
 
             .banner-content-wrapper {
@@ -1964,7 +1970,7 @@
             }
         }
 
-        /* Sección Blog Mundial */
+        /* Sección blog / recursos */
         .blog-section {
             background: #f5f5f5;
             padding: 4rem 2rem;
@@ -2140,14 +2146,7 @@
     <header class="header">
         <div class="header-main">
             <a href="/" class="logo">
-                <img
-                    src="{{ asset('images/logos/seguros-mundial-logo.webp') }}"
-                    alt="Seguros Mundial"
-                    class="logo-image"
-                    width="304"
-                    height="68"
-                    decoding="async"
-                >
+                <x-site-logo variant="azul" class="logo-image" />
             </a>
             <div class="mobile-header-icons" aria-hidden="true">
                 <button class="mobile-icon-btn" type="button" tabindex="-1">
@@ -2187,7 +2186,7 @@
                 <div class="banner-texts">
                     <h1 class="banner-title-main">Que tu vehículo empiece el año protegido</h1>
                     <div class="banner-description">
-                        <p>Protege tu nave con el SOAT de Seguros Mundial y viaja tranquilo todo el año.</p>
+                        <p>Protege tu vehículo con tu SOAT y viaja tranquilo todo el año.</p>
                     </div>
                     <button class="primary-button" type="button">
                         Conoce aquí las nuevas tarifas SOAT 2026
@@ -2274,14 +2273,14 @@
                             <div class="checkbox-group">
                                 <label class="checkbox-label">
                                     <input type="checkbox" id="acepta_privacidad" name="acepta_privacidad" required>
-                                    <span>Autorizo el tratamiento de mis datos y acepto la <a href="https://www.segurosmundial.com.co/proteccion-de-datos/" target="_blank" rel="noopener noreferrer">Política de Privacidad</a>, así como los <a href="/terminos-y-condiciones/" target="_blank" rel="noopener noreferrer">términos y condiciones</a>.</span>
+                                    <span>Autorizo el tratamiento de mis datos y acepto la <a href="{{ route('politica.privacidad') }}" target="_blank" rel="noopener noreferrer">Política de privacidad</a>, así como los <a href="{{ route('terminos.condiciones') }}" target="_blank" rel="noopener noreferrer">términos y condiciones</a>.</span>
                                 </label>
                             </div>
 
                             <div class="checkbox-group">
                                 <label class="checkbox-label">
                                     <input type="checkbox" id="acepta_comunicaciones" name="acepta_comunicaciones">
-                                    <span>Acepto recibir comunicaciones comerciales y publicitarias personalizadas a través de los canales autorizados por Seguros Mundial</span>
+                                    <span>Acepto recibir comunicaciones comerciales y publicitarias personalizadas a través de los canales autorizados por {{ config('app.name') }}</span>
                                 </label>
                             </div>
 
@@ -2306,7 +2305,7 @@
                                     </div>
                                     <div class="sm-human-verify__right">
                                         <svg class="sm-human-verify__shield" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                                        <span class="sm-human-verify__brand">Verificación Seguros Mundial</span>
+                                        <span class="sm-human-verify__brand">Verificación {{ config('app.name') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -2343,15 +2342,15 @@
                 <button class="conoce-mas-button" type="button">Más información</button>
             </div>
 
-            <!-- Tarjeta 2: Ya estás en Seguros Mundial -->
+            <!-- Tarjeta 2: Consulta de póliza -->
             <div class="conoce-mas-item">
                 <div class="conoce-mas-image-wrapper">
                     <img src="https://images.ctfassets.net/kns4trabzb3r/olVjjaqFvZwDIZRf8JvMr/ae9db47a26ac5e01dc897aa26101ee85/consulta-y-descarga-de-po__liza.png?w=330&h=292&q=50&fm=webp" alt="imagen miniatura" class="conoce-mas-image">
                 </div>
                 <div class="conoce-mas-content">
-                    <h2 class="conoce-mas-title">¿Ya estás en Seguros Mundial?</h2>
+                    <h2 class="conoce-mas-title">¿Necesitas tu póliza?</h2>
                     <div class="conoce-mas-text">
-                        <p>Consulta y descarga la póliza.</p>
+                        <p>Consulta y descarga la documentación de tu SOAT cuando esté disponible.</p>
                     </div>
                 </div>
                 <button class="conoce-mas-button" type="button">Más información</button>
@@ -2444,9 +2443,9 @@
         <div class="amparos-content-wrapper">
             <div class="amparos-wrapper-text">
                 <h2 class="amparos-title">Amparos del SOAT</h2>
-                <h3 class="amparos-subtitle">Un amigo te cubre cuando se pone difícil la vaina.</h3>
+                <h3 class="amparos-subtitle">Conoce lo que cubre tu SOAT ante un accidente.</h3>
                 <div class="amparos-description">
-                    <p>Recuerda que si tienes un accidente, nuestro SOAT ampara lesiones o fallecimiento de conductores, pasajeros o peatones implicados.</p>
+                    <p>Recuerda que el SOAT ampara lesiones o fallecimiento de conductores, pasajeros o peatones implicados, según la normativa vigente.</p>
                 </div>
             </div>
             <div class="amparos-slider">
@@ -2483,10 +2482,10 @@
         </div>
     </section>
 
-    <!-- Sección Blog Mundial -->
+    <!-- Sección blog y recursos -->
     <section class="blog-section">
         <div class="blog-content-wrapper">
-            <h2 class="blog-section-title">Blog Mundial</h2>
+            <h2 class="blog-section-title">Recursos y trámites</h2>
             <div class="blog-container">
                 <!-- Tarjeta 1: Seguro Tercero -->
                 <article class="blog-card">
@@ -2499,7 +2498,7 @@
                             <div class="blog-card-text">
                                 <p>El complemento del SOAT que llegó a respaldarte en los daños materiales causados a terceros en un accidente de transito.</p>
                             </div>
-                            <a class="blog-card-button" href="https://segurotercero.com/?utm_source=soatmundial&utm_medium=referral" target="_blank" rel="noreferrer">Conoce más</a>
+                            <a class="blog-card-button" href="https://segurotercero.com/?utm_source=seguro_soat_web&utm_medium=referral" target="_blank" rel="noreferrer">Conoce más</a>
                         </div>
                     </figure>
                 </article>
@@ -2515,7 +2514,7 @@
                             <div class="blog-card-text">
                                 <p>Bueno, eso depende del tipo de nave que tengas. Puedes conocer el valor de tu SOAT en nuestra sección de tarifas.</p>
                             </div>
-                            <a class="blog-card-button" href="https://soatmundial.com.co/tarifas-soat/" target="_blank" rel="noreferrer">Conoce más</a>
+                            <a class="blog-card-button" href="https://www.mintransporte.gov.co/tramites-y-servicios/vigencia-soat" target="_blank" rel="noreferrer">Conoce más</a>
                         </div>
                     </figure>
                 </article>
@@ -2524,14 +2523,14 @@
                 <article class="blog-card">
                     <figure class="blog-card-body">
                         <div class="blog-card-image-wrapper">
-                            <img src="{{ asset('Secci__n_Beneficios_Mundial_1000x667_px.webp') }}" alt="blog-descuento-soat" class="blog-card-image">
+                            <img src="{{ asset('Secci__n_Beneficios_Mundial_1000x667_px.webp') }}" alt="Renovación y beneficios SOAT" class="blog-card-image">
                         </div>
                         <div class="blog-card-info">
                             <h3 class="blog-card-title">Renueva tu SOAT</h3>
                             <div class="blog-card-text">
                                 <p>Pensando en tu seguridad, creamos la forma más rápida, fácil y segura de renovar tu SOAT online.</p>
                             </div>
-                            <a class="blog-card-button" href="https://soatmundial.com.co/renovacionsoat/" target="_blank" rel="noreferrer">Conoce más</a>
+                            <a class="blog-card-button" href="https://www.runt.com.co/" target="_blank" rel="noreferrer">Conoce más</a>
                         </div>
                     </figure>
                 </article>
@@ -2637,7 +2636,7 @@
                         <label class="checkbox-label">
                             <input type="checkbox" name="acepta_comunicaciones" id="acepta_comunicaciones">
                             <span>
-                                Acepto recibir comunicaciones comerciales y publicitarias personalizadas a través de los canales autorizados por Seguros Mundial
+                                Acepto recibir comunicaciones comerciales y publicitarias personalizadas a través de los canales autorizados por {{ config('app.name') }}
                             </span>
                         </label>
                     </div>
@@ -2671,7 +2670,7 @@
                             </div>
                             <div class="sm-human-verify__right">
                                 <svg class="sm-human-verify__shield" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                                <span class="sm-human-verify__brand">Verificación Seguros Mundial</span>
+                                <span class="sm-human-verify__brand">Verificación {{ config('app.name') }}</span>
                             </div>
                         </div>
                     </div>
@@ -2683,6 +2682,35 @@
         </div>
 
     <x-site-footer />
+
+    @php
+        $amparoSlidesForJs = [
+            [
+                'image' => asset('amparo-transporte.webp'),
+                'title' => 'Gastos de transporte',
+                'text' => 'Hasta 8.77 UVT (Unidades de Valor Tributario) para transporte desde el sitio del accidente hasta un centro médico.',
+                'imgAlt' => 'Imagen de amparo transporte',
+            ],
+            [
+                'image' => asset('amparo-discapacidad.webp'),
+                'title' => 'Incapacidad permanente',
+                'text' => 'Hasta 180 salarios mínimos diarios legales vigentes, si a razón del accidente los implicados quedan con alguna incapacidad permanente.',
+                'imgAlt' => 'Imagen de amparo incapacidad permanente',
+            ],
+            [
+                'image' => asset('amparo-fallecimiento.webp'),
+                'title' => 'Fallecimiento',
+                'text' => '750 salarios mínimos diarios legales vigentes a los beneficiarios de la persona que fallezca.',
+                'imgAlt' => 'Imagen de amparo fallecimiento',
+            ],
+            [
+                'image' => asset('amparo-medico.webp'),
+                'title' => 'Gastos médicos',
+                'text' => 'Cobertura de gastos médicos por accidentes de tránsito.',
+                'imgAlt' => 'Imagen de amparo gastos médicos',
+            ],
+        ];
+    @endphp
 
     <script>
         // Banner Carousel Functionality
@@ -2758,29 +2786,8 @@
         const amparoItemTitle = document.querySelector('.amparos-item-title');
         const amparoItemText = document.querySelector('.amparos-item-text');
         
-        // Datos de los slides
-        const amparoSlidesData = [
-            {
-                image: '{{ asset("amparo-transporte.webp") }}',
-                title: 'Gastos de transporte',
-                text: 'Hasta 8.77 UVT (Unidades de Valor Tributario) para transporte desde el sitio del accidente hasta un centro médico.'
-            },
-            {
-                image: '{{ asset("amparo-discapacidad.webp") }}',
-                title: 'Incapacidad permanente',
-                text: 'Hasta 180 salarios mínimos diarios legales vigentes, si a razón del accidente los implicados quedan con alguna incapacidad permanente.'
-            },
-            {
-                image: '{{ asset("amparo-fallecimiento.webp") }}',
-                title: 'Fallecimiento',
-                text: '750 salarios mínimos diarios legales vigentes a los beneficiarios de la persona que fallezca.'
-            },
-            {
-                image: '{{ asset("amparo-medico.webp") }}',
-                title: 'Gastos médicos',
-                text: 'Cobertura de gastos médicos por accidentes de tránsito.'
-            }
-        ];
+        // Datos del carrusel (URLs desde el servidor, seguras para JS)
+        const amparoSlidesData = @json($amparoSlidesForJs);
 
         function showAmparoSlide(index) {
             if (index < 0 || index >= amparoSlidesData.length) return;
@@ -2793,7 +2800,7 @@
                 const img = amparoImageWrapper.querySelector('img');
                 if (img) {
                     img.src = slide.image;
-                    img.alt = slide.title;
+                    img.alt = slide.imgAlt || slide.title;
                 }
                 amparoItemTitle.textContent = slide.title;
                 amparoItemText.querySelector('p').textContent = slide.text;

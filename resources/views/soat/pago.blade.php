@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pago SOAT - Seguros Mundial</title>
+    <title>Pago SOAT — {{ config('app.name') }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -244,8 +244,8 @@
         <div class="header-inner">
             <a href="{{ route('welcome') }}">
                 <img
-                    src="{{ asset('images/logos/seguros-mundial-logo.webp') }}"
-                    alt="Seguros Mundial"
+                    src="{{ asset('images/logos/logo-seguro-soat-azul.png') }}"
+                    alt="{{ config('app.name') }}"
                     class="logo-image"
                     width="304"
                     height="68"
@@ -309,7 +309,7 @@
             </label>
 
             <p class="disclaimer">¡Pilas antes de pagar verifica que la vigencia de tu póliza este correcta!</p>
-            <p class="disclaimer">*Si tu vehículo aplica para más de una clasificación, cerciórate de elegir la correcta. Para la tarifa de Servicio Público, debes seleccionar la tarifa que tienes autorizada en la Tarjeta de Operación. Seguros Mundial no se hace responsable si eliges la tarifa que no aplica.</p>
+            <p class="disclaimer">*Si tu vehículo aplica para más de una clasificación, cerciórate de elegir la correcta. Para la tarifa de Servicio Público, debes seleccionar la tarifa que tienes autorizada en la Tarjeta de Operación. {{ config('app.name') }} no se hace responsable si eliges la tarifa que no aplica.</p>
 
             <div class="actions">
                 <button type="button" class="btn-link" id="btn-regresar">Regresar</button>

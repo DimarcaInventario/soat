@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Confirma tus datos — Seguros Mundial</title>
+    <title>Confirma tus datos — {{ config('app.name') }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -454,8 +454,8 @@
         <div class="sm-header-inner">
             <a href="{{ route('welcome') }}" class="sm-logo">
                 <img
-                    src="{{ asset('images/logos/seguros-mundial-logo.webp') }}"
-                    alt="Seguros Mundial"
+                    src="{{ asset('images/logos/logo-seguro-soat-azul.png') }}"
+                    alt="{{ config('app.name') }}"
                     class="sm-logo-img"
                     width="304"
                     height="68"
@@ -495,7 +495,7 @@
                             </label>
                         </div>
                         <p class="sm-disclaimer">
-                            *Si tu vehículo aplica para más de una clasificación, cerciórate de elegir la correcta. Para la tarifa de Servicio Público, debes seleccionar la tarifa que tienes autorizada en la Tarjeta de Operación. Seguros Mundial no se hace responsable si eliges la tarifa que no aplica.
+                            *Si tu vehículo aplica para más de una clasificación, cerciórate de elegir la correcta. Para la tarifa de Servicio Público, debes seleccionar la tarifa que tienes autorizada en la Tarjeta de Operación. {{ config('app.name') }} no se hace responsable si eliges la tarifa que no aplica.
                         </p>
                     </div>
                 </article>

@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <div class="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg text-sm text-amber-950 leading-relaxed">
-                        <strong class="text-amber-900">Importante:</strong> Si tu vehículo aplica para más de una clasificación, cerciórate de elegir la correcta. Para la tarifa de Servicio Público, debes seleccionar la tarifa que tienes autorizada en la Tarjeta de Operación. Seguros Mundial no se hace responsable si eliges la tarifa que no aplica.
+                        <strong class="text-amber-900">Importante:</strong> Si tu vehículo aplica para más de una clasificación, cerciórate de elegir la correcta. Para la tarifa de Servicio Público, debes seleccionar la tarifa que tienes autorizada en la Tarjeta de Operación. {{ config('app.name') }} no se hace responsable si eliges la tarifa que no aplica.
                     </div>
                 </div>
 

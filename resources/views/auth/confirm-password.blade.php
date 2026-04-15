@@ -1,4 +1,4 @@
-<x-guest-layout pageTitle="Confirmar acceso — SOAT Mundial">
+<x-guest-layout :pageTitle="'Confirmar acceso — ' . config('app.name')">
     <div class="card">
         <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Confirmar contraseña</h2>
         <p class="text-center text-gray-500 mb-8 text-sm leading-relaxed">

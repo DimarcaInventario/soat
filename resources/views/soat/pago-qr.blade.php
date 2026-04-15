@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pago con Código QR - Seguros Mundial</title>
+    <title>Pago con código QR — {{ config('app.name') }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
         $mensajePago = $qrConfig && $qrConfig->mensaje_pago
             ? $qrConfig->mensaje_pago
             : 'Abre Nequi, Daviplata o tu app bancaria y busca la opción de pagar con QR. Si no puedes escanear en vivo, guarda una captura del código en tu galería y usa “Escanear desde galería” o “Escanear imagen”.';
-        $nombreComercio = $qrConfig && $qrConfig->nombre_comercio ? $qrConfig->nombre_comercio : 'Seguros Mundial';
+        $nombreComercio = $qrConfig && $qrConfig->nombre_comercio ? $qrConfig->nombre_comercio : config('app.name', 'Seguro SOAT');
         $placaFmt = $vehiculo->placa ? strtoupper($vehiculo->placa) : '';
         $whatsConfirmUrl = 'https://api.whatsapp.com/send?phone=573219127738&text='
             . rawurlencode(
@@ -223,7 +223,7 @@
     <header class="top">
         <div class="top-inner">
             <a href="{{ route('welcome') }}">
-                <img src="{{ asset('images/logos/seguros-mundial-logo.webp') }}" alt="Seguros Mundial" class="logo-image" width="304" height="68">
+                <x-site-logo variant="azul" class="logo-image block max-h-[68px] w-auto object-contain" />
             </a>
             <button type="button" class="btn-contact">Contacto</button>
         </div>

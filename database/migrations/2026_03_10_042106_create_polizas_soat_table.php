@@ -21,7 +21,7 @@ class CreatePolizasSoatTable extends Migration
             $table->date('fecha_fin');
             $table->decimal('valor', 15, 2);
             $table->enum('estado', ['vigente', 'vencida', 'proxima_vencer'])->default('vigente');
-            $table->string('aseguradora')->default('Seguros Mundial');
+            $table->string('aseguradora')->default('Seguro SOAT');
             $table->timestamps();
         });
     }

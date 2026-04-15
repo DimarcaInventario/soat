@@ -69,7 +69,7 @@ class ConsultaSoatController extends Controller
     }
 
     /**
-     * Pantalla de confirmación de compra (estilo flujo Seguros Mundial).
+     * Pantalla de confirmación de compra (flujo público de cotización y pago).
      */
     public function confirmacion(Request $request)
     {

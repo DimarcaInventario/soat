@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Términos y Condiciones - SOAT Mundial</title>
+    <title>Términos y condiciones — {{ config('app.name') }}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="{{ mix('js/app.js') }}" defer></script>
@@ -25,10 +25,10 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo-section h1 {
-            color: white;
-            margin: 0;
-            font-size: 1.5em;
+        .logo-section img {
+            display: block;
+            max-height: 48px;
+            width: auto;
         }
         .header-contacts a {
             color: white;
@@ -111,7 +111,9 @@
     <header class="header-soat">
         <div class="header-content">
             <div class="logo-section">
-                <h1>SOAT Mundial</h1>
+                <a href="{{ route('welcome') }}" style="display:inline-block;line-height:0;">
+                    <img src="{{ asset('images/logos/logo-seguro-soat-blanco.png') }}" alt="{{ config('app.name') }}" width="200" height="56" decoding="async">
+                </a>
             </div>
             <div class="header-contacts">
                 <a href="{{ route('welcome') }}">Volver al Inicio</a>
@@ -126,7 +128,7 @@
             <p><strong>Última actualización:</strong> {{ date('d/m/Y') }}</p>
 
             <h2>1. Aceptación de los Términos</h2>
-            <p>Al acceder y utilizar el sitio web de SOAT Mundial, usted acepta estar sujeto a estos términos y condiciones de uso.</p>
+            <p>Al acceder y utilizar el sitio web de {{ config('app.name') }}, usted acepta estar sujeto a estos términos y condiciones de uso.</p>
 
             <h2>2. Uso del Servicio</h2>
             <p>El servicio de consulta de SOAT está disponible para uso personal y no comercial. Usted se compromete a:</p>
@@ -138,13 +140,13 @@
             </ul>
 
             <h2>3. Información Proporcionada</h2>
-            <p>Usted es responsable de la exactitud de la información que proporciona. Seguros Mundial no se hace responsable por errores derivados de información incorrecta proporcionada por el usuario.</p>
+            <p>Usted es responsable de la exactitud de la información que proporciona. {{ config('app.name') }} no se hace responsable por errores derivados de información incorrecta proporcionada por el usuario.</p>
 
             <h2>4. Disponibilidad del Servicio</h2>
             <p>Nos esforzamos por mantener el servicio disponible, pero no garantizamos disponibilidad continua. Podemos interrumpir el servicio para mantenimiento o actualizaciones.</p>
 
             <h2>5. Limitación de Responsabilidad</h2>
-            <p>Seguros Mundial no será responsable por daños indirectos, incidentales o consecuentes derivados del uso o la imposibilidad de usar el servicio.</p>
+            <p>{{ config('app.name') }} no será responsable por daños indirectos, incidentales o consecuentes derivados del uso o la imposibilidad de usar el servicio.</p>
 
             <h2>6. Modificaciones</h2>
             <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Las modificaciones entrarán en vigor al ser publicadas en el sitio web.</p>
@@ -165,7 +167,7 @@
                 <a href="{{ route('politica.privacidad') }}">Política de Privacidad</a>
                 <a href="{{ route('terminos.condiciones') }}">Términos y Condiciones</a>
             </div>
-            <p style="margin: 0; font-size: 0.9em;">© {{ date('Y') }} Seguros Mundial. Todos los derechos reservados.</p>
+            <p style="margin: 0; font-size: 0.9em;">© {{ date('Y') }} {{ config('app.name') }}. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>
