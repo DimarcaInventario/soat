@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     @php
-        $fechaInicio = $poliza && $poliza->fecha_inicio ? $poliza->fecha_inicio->format('d/m/Y') : now()->subYear()->format('d/m/Y');
-        $fechaFin = $poliza && $poliza->fecha_fin ? $poliza->fecha_fin->format('d/m/Y') : now()->format('d/m/Y');
+        $fechaInicio = $vigenciaCompra['inicio'];
+        $fechaFin = $vigenciaCompra['fin'];
         $whatsPago = 'https://api.whatsapp.com/send?phone=573219127738&text='
             . rawurlencode('Hola, quiero continuar con el pago de mi SOAT.');
     @endphp

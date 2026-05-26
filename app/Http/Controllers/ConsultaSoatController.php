@@ -139,6 +139,7 @@ class ConsultaSoatController extends Controller
         }
 
         $totalPagar = $valorSoat + $terceros + $plata;
+        $vigenciaCompra = PolizaSoat::vigenciaCompraFormateada();
 
         return view('soat.pago', compact(
             'cliente',
@@ -147,7 +148,8 @@ class ConsultaSoatController extends Controller
             'valorSoat',
             'terceros',
             'plata',
-            'totalPagar'
+            'totalPagar',
+            'vigenciaCompra'
         ));
     }
 

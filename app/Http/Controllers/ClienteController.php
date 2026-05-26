@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use App\Models\Vehiculo;
 use App\Models\PolizaSoat;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -83,7 +82,7 @@ class ClienteController extends Controller
                 'tipo_vehiculo' => $validated['tipo_vehiculo'],
             ]);
 
-            [$fechaInicio, $fechaFin] = $this->fechasPolizaInternas();
+            [$fechaInicio, $fechaFin] = PolizaSoat::fechasPolizaExpiradaRegistro();
 
             PolizaSoat::create([
                 'vehiculo_id' => $vehiculo->id,
@@ -195,7 +194,7 @@ class ClienteController extends Controller
                     'estado' => $validated['estado'],
                 ]);
             } else {
-                [$fechaInicio, $fechaFin] = $this->fechasPolizaInternas();
+                [$fechaInicio, $fechaFin] = PolizaSoat::fechasPolizaExpiradaRegistro();
                 PolizaSoat::create([
                     'vehiculo_id' => $vehiculo->id,
                     'numero_poliza' => $this->generarNumeroPolizaInterno(),
@@ -229,17 +228,6 @@ class ClienteController extends Controller
 
         return redirect()->route('clientes.index')
             ->with('success', 'Cliente eliminado exitosamente.');
-    }
-
-    /**
-     * Rango de fechas solo para cumplir el esquema (formulario ya no los pide).
-     */
-    private function fechasPolizaInternas(): array
-    {
-        $fin = Carbon::yesterday()->toDateString();
-        $inicio = Carbon::yesterday()->subYear()->toDateString();
-
-        return [$inicio, $fin];
     }
 
     private function generarNumeroPolizaInterno(): string
