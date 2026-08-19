@@ -2159,7 +2159,6 @@
             height: 100%;
             object-fit: cover;
             object-position: center top;
-            mix-blend-mode: screen;
         }
 
         .otras-polizas-inner {
@@ -2765,7 +2764,7 @@
     <!-- Sección Otras Pólizas -->
     <section class="otras-polizas-section">
         <div class="otras-polizas-decor" aria-hidden="true">
-            <img src="{{ asset('images/otras-polizas/decoracion.png?v=2') }}" alt="">
+            <img src="{{ asset('images/otras-polizas/decoracion.png?v=3') }}" alt="">
         </div>
         <div class="otras-polizas-inner">
             <h2 class="otras-polizas-title">Conoce nuestras otras pólizas</h2>
