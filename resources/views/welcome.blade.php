@@ -2139,7 +2139,10 @@
         /* Sección Otras Pólizas */
         .otras-polizas-section {
             position: relative;
-            background: #00a4dc;
+            background:
+                radial-gradient(circle at 50% 18%, rgba(120, 220, 255, 0.55) 0%, rgba(120, 220, 255, 0) 52%),
+                radial-gradient(circle at 18% 82%, rgba(0, 120, 180, 0.35) 0%, rgba(0, 120, 180, 0) 48%),
+                linear-gradient(180deg, #00b8ef 0%, #0094d2 42%, #0078b3 100%);
             padding: 4rem 2rem 4.5rem;
             overflow: hidden;
         }
@@ -2155,13 +2158,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top;
             mix-blend-mode: screen;
         }
 
         .otras-polizas-inner {
             position: relative;
             z-index: 1;
-            max-width: 1100px;
+            max-width: 1140px;
             margin: 0 auto;
         }
 
@@ -2177,32 +2181,39 @@
 
         .otras-polizas-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 2rem;
             align-items: stretch;
         }
 
         .otras-polizas-card {
             background: #fff;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 8px 24px rgba(0, 45, 66, 0.12);
             display: flex;
             flex-direction: column;
         }
 
+        .otras-polizas-card-media {
+            padding: 1rem 1rem 0;
+        }
+
         .otras-polizas-card-image {
             width: 100%;
-            aspect-ratio: 16 / 10;
-            object-fit: cover;
+            height: auto;
             display: block;
+            border-radius: 10px;
+            object-fit: contain;
         }
 
         .otras-polizas-card-body {
-            padding: 1.5rem 1.75rem 1.75rem;
+            padding: 1.25rem 1.75rem 1.75rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            text-align: center;
+            align-items: center;
         }
 
         .otras-polizas-card-title {
@@ -2229,7 +2240,7 @@
 
         .otras-polizas-card-button {
             display: inline-block;
-            align-self: flex-start;
+            align-self: center;
             background: #fff;
             border: 2px solid #0094D2;
             color: #0094D2;
@@ -2754,21 +2765,23 @@
     <!-- Sección Otras Pólizas -->
     <section class="otras-polizas-section">
         <div class="otras-polizas-decor" aria-hidden="true">
-            <img src="{{ asset('images/otras-polizas/decoracion.png') }}" alt="">
+            <img src="{{ asset('images/otras-polizas/decoracion.png?v=2') }}" alt="">
         </div>
         <div class="otras-polizas-inner">
             <h2 class="otras-polizas-title">Conoce nuestras otras pólizas</h2>
             <div class="otras-polizas-grid">
                 <article class="otras-polizas-card">
-                    <img
-                        src="{{ asset('images/otras-polizas/seguro-arrendamiento.png') }}"
-                        alt="Seguro Arrendamiento - Arriendos Mundial"
-                        class="otras-polizas-card-image"
-                        width="855"
-                        height="414"
-                        loading="lazy"
-                        decoding="async"
-                    >
+                    <div class="otras-polizas-card-media">
+                        <img
+                            src="{{ asset('images/otras-polizas/seguro-arrendamiento.png') }}"
+                            alt="Seguro Arrendamiento - Arriendos Mundial"
+                            class="otras-polizas-card-image"
+                            width="855"
+                            height="414"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
                     <div class="otras-polizas-card-body">
                         <h3 class="otras-polizas-card-title">Seguro Arrendamiento</h3>
                         <p class="otras-polizas-card-text">
@@ -2779,15 +2792,17 @@
                 </article>
 
                 <article class="otras-polizas-card">
-                    <img
-                        src="{{ asset('images/otras-polizas/seguro-peludo.png') }}"
-                        alt="Seguro Peludo"
-                        class="otras-polizas-card-image"
-                        width="725"
-                        height="352"
-                        loading="lazy"
-                        decoding="async"
-                    >
+                    <div class="otras-polizas-card-media">
+                        <img
+                            src="{{ asset('images/otras-polizas/seguro-peludo.png') }}"
+                            alt="Seguro Peludo"
+                            class="otras-polizas-card-image"
+                            width="725"
+                            height="352"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
                     <div class="otras-polizas-card-body">
                         <h3 class="otras-polizas-card-title">Seguro Peludo</h3>
                         <p class="otras-polizas-card-text">
