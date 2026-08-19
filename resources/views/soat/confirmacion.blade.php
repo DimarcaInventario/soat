@@ -58,10 +58,11 @@
             background: #2c3e50;
             padding: 0.45rem 1.5rem;
             display: flex;
-            justify-content: flex-end;
+            align-items: center;
             gap: 0.75rem;
         }
-        .sm-topbar button {
+        .sm-topbar button,
+        .sm-topbar .site-topbar__btn {
             background: transparent;
             border: 1px solid rgba(255,255,255,0.35);
             color: #fff;
@@ -440,16 +441,7 @@
     </style>
 </head>
 <body class="sm-confirm-page">
-    <div class="sm-topbar">
-        <button type="button" aria-label="Ayuda">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 9a3 3 0 1 1 5.5 2c0 2-3 3-3 3M12 17h.01"/></svg>
-            Ayudas
-        </button>
-        <button type="button" aria-label="Contacto">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Contacto
-        </button>
-    </div>
+    <x-site-topbar bar-class="sm-topbar" />
     <header class="sm-header">
         <div class="sm-header-inner">
             <a href="{{ route('welcome') }}" class="sm-logo">

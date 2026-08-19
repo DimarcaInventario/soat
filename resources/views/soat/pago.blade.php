@@ -31,10 +31,11 @@
             background: #2c3e50;
             padding: 0.45rem 1.5rem;
             display: flex;
-            justify-content: flex-end;
+            align-items: center;
             gap: 0.6rem;
         }
-        .topbar button {
+        .topbar button,
+        .topbar .site-topbar__btn {
             border: 1px solid rgba(255,255,255,0.35);
             background: transparent;
             color: #fff;
@@ -236,10 +237,7 @@
     </style>
 </head>
 <body>
-    <div class="topbar">
-        <button type="button">Ayuda</button>
-        <button type="button">Contacto</button>
-    </div>
+    <x-site-topbar bar-class="topbar" :with-icons="false" />
     <header class="header">
         <div class="header-inner">
             <a href="{{ route('welcome') }}">

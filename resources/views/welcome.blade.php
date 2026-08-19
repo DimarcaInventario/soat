@@ -143,7 +143,6 @@
             background: #2c3e50;
             padding: 0.5rem 2rem;
             display: flex;
-            justify-content: flex-end;
             align-items: center;
             position: relative;
             z-index: 100;
@@ -325,13 +324,7 @@
 
         /* Banner Section */
         .banner-section {
-            /* Imagen al frente + gradiente al fondo (sin opacidad) */
-            background-image:
-                url('{{ asset('arte_banner_03.webp') }}'),
-                linear-gradient(180deg, #0e618f 0, #003459 50%, #000717);
-            background-size: 60% auto, 100% 100%;
-            background-position: center right, center center;
-            background-repeat: no-repeat, no-repeat;
+            background: linear-gradient(135deg, #d6eef8 0%, #eef8fd 52%, #f8fcff 100%);
             padding: 3rem 2rem;
             position: relative;
             overflow: hidden;
@@ -438,15 +431,8 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Ilustración del banner también en tablet/móvil (tamaño y posición adaptados) */
         @media (max-width: 1279px) {
             .banner-section {
-                background-image:
-                    url('{{ asset('arte_banner_03.webp') }}'),
-                    linear-gradient(180deg, #0e618f 0, #003459 50%, #000717);
-                background-size: min(100vw, 560px) auto, 100% 100%;
-                background-position: center right, center center;
-                background-repeat: no-repeat, no-repeat;
                 justify-content: center;
             }
 
@@ -1404,19 +1390,21 @@
             }
 
             .banner-section {
-                padding: 1.25rem 1rem 1.7rem;
+                padding: 0.85rem 0.75rem 1rem;
                 min-height: auto;
-                background-size: min(100vw, 420px) auto, 100% 100%;
-                background-position: top right, center center;
             }
 
             .banner-content-wrapper {
                 display: block;
+                gap: 0.85rem;
             }
 
             .banner-left,
-            .banner-mobile-buttons,
             .banner-controls {
+                display: block !important;
+            }
+
+            .banner-mobile-buttons {
                 display: none !important;
             }
 
@@ -1424,6 +1412,10 @@
                 width: 100%;
                 margin-left: 0;
                 justify-content: center;
+            }
+
+            .banner-controls {
+                display: none !important;
             }
 
             .form-section {
@@ -1445,19 +1437,19 @@
             }
 
             .form-card {
-                padding: 1.5rem;
+                padding: 1.15rem 1rem;
             }
 
             .form-title {
                 text-align: center;
-                font-size: 2rem;
-                margin-bottom: 0.35rem;
+                font-size: 1.45rem;
+                margin-bottom: 0.25rem;
             }
 
             .form-subtitle {
                 text-align: center;
-                margin-bottom: 1.25rem;
-                font-size: 1rem;
+                margin-bottom: 0.95rem;
+                font-size: 0.9rem;
                 color: #0078ad;
                 font-weight: 600;
             }
@@ -1668,20 +1660,101 @@
 
         @media (max-width: 768px) {
             .conoce-mas-section {
-                padding: 3rem 1.5rem;
+                padding: 1.75rem 0.85rem 2rem;
             }
 
             .conoce-mas-container {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 0.85rem;
             }
 
-            .conoce-mas-title {
-                font-size: 1.25rem;
+            .conoce-mas-item {
+                display: grid;
+                grid-template-columns: 88px 1fr;
+                grid-template-rows: auto auto;
+                align-items: start;
+                gap: 0.45rem 0.75rem;
+                padding: 0.85rem;
+                border-radius: 10px;
+                box-shadow: 0 1px 4px rgba(0, 52, 89, 0.08);
+            }
+
+            .conoce-mas-image-wrapper {
+                grid-row: 1 / span 2;
+                flex: none;
+                width: 88px;
+                min-height: 0;
+                margin-bottom: 0;
+            }
+
+            .conoce-mas-item:first-child .conoce-mas-image-wrapper {
+                min-height: 0;
+            }
+
+            .conoce-mas-image {
+                width: 88px;
+                height: 88px;
+                object-fit: contain;
             }
 
             .conoce-mas-content {
-                padding: 0;
+                grid-column: 2;
+                flex: none;
+                min-width: 0;
+            }
+
+            .conoce-mas-title {
+                font-size: 0.95rem;
+                margin-bottom: 0.35rem;
+                line-height: 1.25;
+            }
+
+            .conoce-mas-text {
+                margin-bottom: 0.55rem;
+            }
+
+            .conoce-mas-text p {
+                font-size: 0.78rem;
+                line-height: 1.4;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .conoce-mas-button {
+                grid-column: 2;
+                align-self: flex-start;
+                padding: 0.35rem 0.75rem;
+                font-size: 0.76rem;
+                border-radius: 999px;
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .conoce-mas-item {
+                grid-template-columns: 72px 1fr;
+                padding: 0.7rem;
+                gap: 0.35rem 0.6rem;
+            }
+
+            .conoce-mas-image-wrapper {
+                width: 72px;
+            }
+
+            .conoce-mas-image {
+                width: 72px;
+                height: 72px;
+            }
+
+            .conoce-mas-title {
+                font-size: 0.88rem;
+            }
+
+            .conoce-mas-text p {
+                font-size: 0.74rem;
+                -webkit-line-clamp: 2;
             }
         }
 
@@ -2116,25 +2189,11 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WC4JJL8" height="0" width="0" style="display: none; visibility: hidden" aria-hidden="true"></iframe></noscript>
     <!-- Header Top Bar (Dark) -->
-    <div class="header-top-bar">
-        <div class="header-top-buttons">
-            <button class="btn-top-bar" type="button">
-                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                </svg>
-                <span>Ayuda</span>
-            </button>
-            <button class="btn-top-bar" type="button">
-                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-                <span>Contacto</span>
-            </button>
-        </div>
-    </div>
+    <x-site-topbar
+        bar-class="header-top-bar"
+        actions-class="header-top-buttons"
+        button-class="btn-top-bar"
+    />
 
     @if (session('error'))
         <div role="alert" style="background:#fde8e8;color:#9b1c1c;padding:0.75rem 1.5rem;text-align:center;font-size:0.9rem;font-weight:600;">
@@ -2183,23 +2242,7 @@
     <section class="banner-section">
         <div class="banner-content-wrapper">
             <div class="banner-left">
-                <div class="banner-texts">
-                    <h1 class="banner-title-main">Que tu vehículo empiece el año protegido</h1>
-                    <div class="banner-description">
-                        <p>Protege tu vehículo con tu SOAT y viaja tranquilo todo el año.</p>
-                    </div>
-                    <button class="primary-button" type="button">
-                        Conoce aquí las nuevas tarifas SOAT 2026
-                    </button>
-                    <div class="banner-mobile-buttons">
-                        <button class="banner-mobile-btn" data-testid="button-back" onclick="changeBanner(-1)">
-                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDpub25lO308L3N0eWxlPjwvZGVmcz48dGl0bGUvPjxnIGRhdGEtbmFtZT0iTGF5ZXIgMiIgaWQ9IkxheWVyXzIiPjxwYXRoIGZpbGw9IiMwODdEQUYiIGQ9Ik0xMywyNmExLDEsMCwwLDEtLjcxLS4yOWwtOS05YTEsMSwwLDAsMSwwLTEuNDJsOS05YTEsMSwwLDEsMSwxLjQyLDEuNDJMNS40MSwxNmw4LjMsOC4yOWExLDEsMCwwLDEsMCwxLjQyQTEsMSwwLDAsMSwxMywyNloiLz48cGF0aCBmaWxsPSIjMDg3REFGIiBkPSJNMjgsMTdINGExLDEsMCwwLDEsMC0ySDI4YTEsMSwwLDAsMSwwLDJaIi8+PC9nPjxnIGlkPSJmcmFtZSI+PHJlY3QgY2xhc3M9ImNscy0xIiBoZWlnaHQ9IjMyIiB3aWR0aD0iMzIiLz48L2c+PC9zdmc+Cg==" alt="Flecha izquierda">
-                        </button>
-                        <button class="banner-mobile-btn" data-testid="button-next" onclick="changeBanner(1)">
-                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDMyIDMyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDpub25lO308L3N0eWxlPjwvZGVmcz48dGl0bGUvPjxnIGRhdGEtbmFtZT0iTGF5ZXIgMiIgaWQ9IkxheWVyXzIiPjxwYXRoIGZpbGw9IiMwODdEQUYiIGQ9Ik0xOSwyNmExLDEsMCwwLDEtLjcxLS4yOSwxLDEsMCwwLDEsMC0xLjQyTDI2LjU5LDE2bC04LjMtOC4yOWExLDEsMCwwLDEsMS40Mi0xLjQybDksOWExLDEsMCwwLDEsMCwxLjQybC05LDlBMSwxLDAsMCwxLDE5LDI2WiIvPjxwYXRoIGZpbGw9IiMwODdEQUYiIGQ9Ik0yOCwxN0g0YTEsMSwwLDAsMSwwLTJIMjhhMSwxLDAsMCwxLDAsMloiLz48L2c+PGcgaWQ9ImZyYW1lIj48cmVjdCBjbGFzcz0iY2xzLTEiIGhlaWdodD0iMzIiIHdpZHRoPSIzMiIvPjwvZz48L3N2Zz4K" alt="Flecha derecha">
-                        </button>
-                    </div>
-                </div>
+                <x-pack-movilidad-banner cta-href="#soatForm" />
             </div>
             <div class="banner-right">
                 <!-- Form Section -->
@@ -2331,7 +2374,7 @@
             <!-- Tarjeta 1: Pack de Movilidad -->
             <div class="conoce-mas-item">
                 <div class="conoce-mas-image-wrapper">
-                    <img src="https://images.ctfassets.net/kns4trabzb3r/5DSoEietutR5fHuONzqivB/68453fb4facd06cba0e653cd7a633ca2/Image-beneficios-body1_3x.png?w=1122&h=1032&q=50&fm=webp" alt="Imagen club beneficios" class="conoce-mas-image">
+                    <img src="https://images.ctfassets.net/kns4trabzb3r/5DSoEietutR5fHuONzqivB/68453fb4facd06cba0e653cd7a633ca2/Image-beneficios-body1_3x.png?w=330&h=292&q=50&fm=webp" alt="Imagen club beneficios" class="conoce-mas-image" width="330" height="292" loading="lazy" decoding="async">
                 </div>
                 <div class="conoce-mas-content">
                     <h2 class="conoce-mas-title">Compra tu Pack de Movilidad</h2>
