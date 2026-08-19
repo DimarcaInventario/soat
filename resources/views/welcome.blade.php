@@ -2139,26 +2139,17 @@
         /* Sección Otras Pólizas */
         .otras-polizas-section {
             position: relative;
-            background:
-                radial-gradient(circle at 50% 18%, rgba(120, 220, 255, 0.55) 0%, rgba(120, 220, 255, 0) 52%),
-                radial-gradient(circle at 18% 82%, rgba(0, 120, 180, 0.35) 0%, rgba(0, 120, 180, 0) 48%),
-                linear-gradient(180deg, #00b8ef 0%, #0094d2 42%, #0078b3 100%);
+            background-color: #0078b3;
+            background-image:
+                url("{{ asset('images/otras-polizas/decoracion.png?v=4') }}"),
+                radial-gradient(circle at 50% 12%, rgba(130, 225, 255, 0.85) 0%, rgba(130, 225, 255, 0) 58%),
+                linear-gradient(180deg, #00c4ff 0%, #0094d2 48%, #006da8 100%);
+            background-size: cover, cover, cover;
+            background-position: center top, center, center;
+            background-repeat: no-repeat;
+            background-blend-mode: screen, normal, normal;
             padding: 4rem 2rem 4.5rem;
             overflow: hidden;
-        }
-
-        .otras-polizas-decor {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .otras-polizas-decor img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
         }
 
         .otras-polizas-inner {
@@ -2763,9 +2754,6 @@
 
     <!-- Sección Otras Pólizas -->
     <section class="otras-polizas-section">
-        <div class="otras-polizas-decor" aria-hidden="true">
-            <img src="{{ asset('images/otras-polizas/decoracion.png?v=3') }}" alt="">
-        </div>
         <div class="otras-polizas-inner">
             <h2 class="otras-polizas-title">Conoce nuestras otras pólizas</h2>
             <div class="otras-polizas-grid">
