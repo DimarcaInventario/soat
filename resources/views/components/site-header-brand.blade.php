@@ -85,7 +85,7 @@
     <span class="site-header-brand__divider" aria-hidden="true"></span>
     <span class="site-header-brand__partners-wrap">
         <img
-            src="{{ $partnersImage }}?v=4"
+            src="{{ $partnersImage }}?v=5"
             alt="SOAT, Accidentes Personales y Seguro Ter-cero"
             class="site-header-brand__partners"
             width="340"
