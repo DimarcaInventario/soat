@@ -55,9 +55,10 @@
             line-height: 1.5;
         }
         .sm-topbar {
-            background: #2c3e50;
+            background: #002d42;
             padding: 0.45rem 1.5rem;
             display: flex;
+            justify-content: flex-end;
             align-items: center;
             gap: 0.75rem;
         }
@@ -94,13 +95,13 @@
             gap: 0.65rem;
             text-decoration: none;
             color: var(--sm-teal);
+            min-width: 0;
+            flex: 1;
         }
-        .sm-logo-img {
-            display: block;
-            height: 48px;
-            width: auto;
-            max-width: min(280px, 55vw);
-            object-fit: contain;
+        .sm-logo .site-header-brand__partners,
+        .sm-logo-img,
+        .sm-logo .site-logo-img {
+            max-height: 48px;
         }
         .sm-nav-actions {
             display: flex;
@@ -444,16 +445,9 @@
     <x-site-topbar bar-class="sm-topbar" />
     <header class="sm-header">
         <div class="sm-header-inner">
-            <a href="{{ route('welcome') }}" class="sm-logo">
-                <img
-                    src="{{ asset('images/logos/logo-seguro-soat-azul.png') }}"
-                    alt="{{ config('app.name') }}"
-                    class="sm-logo-img"
-                    width="304"
-                    height="68"
-                    decoding="async"
-                >
-            </a>
+            <div class="sm-logo">
+                <x-site-header-brand variant="azul" logo-class="sm-logo-img" />
+            </div>
             <div class="sm-nav-actions">
                 <button type="button" class="sm-nav-dropdown" aria-haspopup="true">
                     SOAT

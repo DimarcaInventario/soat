@@ -140,9 +140,10 @@
 
         /* Header Styles - Barra superior oscura */
         .header-top-bar {
-            background: #2c3e50;
+            background: #002d42;
             padding: 0.5rem 2rem;
             display: flex;
+            justify-content: flex-end;
             align-items: center;
             position: relative;
             z-index: 100;
@@ -324,28 +325,112 @@
 
         /* Banner Section */
         .banner-section {
-            background: linear-gradient(135deg, #d6eef8 0%, #eef8fd 52%, #f8fcff 100%);
-            padding: 3rem 2rem;
+            background:
+                radial-gradient(circle at 82% 22%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 45%),
+                radial-gradient(circle at 18% 78%, rgba(0, 122, 183, 0.07) 0%, rgba(0, 122, 183, 0) 40%),
+                linear-gradient(180deg, #b5dff0 0%, #d4edf8 35%, #ebf7fc 70%, #f8fcff 100%);
+            padding: 2rem 2rem 4.5rem;
             position: relative;
             overflow: hidden;
             display: flex;
             align-items: center;
-            min-height: calc(100vh - 200px);
+            min-height: calc(100vh - 190px);
+        }
+
+        .banner-section::before,
+        .banner-section::after {
+            content: "";
+            position: absolute;
+            border: 2px solid rgba(0, 122, 183, 0.12);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .banner-section::before {
+            width: 280px;
+            height: 280px;
+            top: 8%;
+            right: 18%;
+        }
+
+        .banner-section::after {
+            width: 180px;
+            height: 180px;
+            bottom: 12%;
+            left: 42%;
         }
 
         .banner-content-wrapper {
-            display: flex;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
             width: 100%;
-            max-width: 1400px;
+            max-width: 1320px;
             margin: 0 auto;
-            gap: 3rem;
+            gap: 0.75rem 1.25rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .banner-left {
-            flex: 1.4;
             position: relative;
             z-index: 2;
+            overflow: visible;
+            min-width: 0;
+        }
+
+        .banner-conoce-mas {
+            position: absolute;
+            left: 50%;
+            bottom: 1.1rem;
+            transform: translateX(-50%);
+            z-index: 4;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.4rem 1.1rem;
+            border: 1px solid #c8deea;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #007ab7;
+            font-family: Ubuntu, 'Open Sans', sans-serif;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0, 45, 66, 0.06);
+        }
+
+        .banner-conoce-mas:hover {
+            background: #fff;
+            color: #003087;
+        }
+
+        .banner-section .form-card {
+            margin: 0;
+            max-width: 400px;
+            width: 100%;
+            padding: 1.45rem 1.25rem 1.35rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 28px rgba(0, 45, 66, 0.14);
+        }
+
+        .banner-section .form-title {
+            color: #003087;
+            font-size: 1.45rem;
+        }
+
+        .banner-section .form-subtitle {
+            color: #0078ad;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .form-soat-only {
+            margin: 0.85rem 0 0.55rem;
+            font-size: 0.82rem;
+            color: #0078ad;
+            font-weight: 700;
         }
 
         .banner-bg-figure {
@@ -474,12 +559,14 @@
         }
 
         .banner-right {
-            flex: 1;
             position: relative;
             z-index: 3;
-            margin-left: auto;
             display: flex;
             justify-content: flex-end;
+        }
+
+        .banner-controls {
+            display: none !important;
         }
 
         /* Banner Carousel */
@@ -1394,9 +1481,18 @@
                 min-height: auto;
             }
 
+            .banner-section::before,
+            .banner-section::after {
+                display: none;
+            }
+
             .banner-content-wrapper {
                 display: block;
                 gap: 0.85rem;
+            }
+
+            .banner-conoce-mas {
+                display: none;
             }
 
             .banner-left,
@@ -2204,9 +2300,9 @@
     <!-- Header Main (White) -->
     <header class="header">
         <div class="header-main">
-            <a href="/" class="logo">
-                <x-site-logo variant="azul" class="logo-image" />
-            </a>
+            <div class="logo">
+                <x-site-header-brand variant="azul" logo-class="logo-image" />
+            </div>
             <div class="mobile-header-icons" aria-hidden="true">
                 <button class="mobile-icon-btn" type="button" tabindex="-1">
                     <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -2242,7 +2338,7 @@
     <section class="banner-section">
         <div class="banner-content-wrapper">
             <div class="banner-left">
-                <x-pack-movilidad-banner cta-href="#soatForm" />
+                <x-pack-movilidad-banner />
             </div>
             <div class="banner-right">
                 <!-- Form Section -->
@@ -2327,6 +2423,8 @@
                                 </label>
                             </div>
 
+                            <p class="form-soat-only">¿Quieres comprar solo tu SOAT?</p>
+
                             <div class="payment-methods">
                                 <img src="https://images.ctfassets.net/kns4trabzb3r/4arLg8PGcMgO8vrzGvKwVb/5bc224c0811f7f0bc18f2386b54b4a53/pse.png?w=78&h=81&q=50&fm=webp" alt="PSE" class="payment-logo">
                                 <img src="https://images.ctfassets.net/kns4trabzb3r/3MyeAiOJmgQ6bjrCsGCkIE/899a64153557567ac217c1706bb0bf3c/logo_nequi.png?w=243&h=77&q=50&fm=webp" alt="Nequi" class="payment-logo">
@@ -2353,19 +2451,16 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn-submit">Compra tu SOAT</button>
+                            <button type="submit" class="btn-submit">Cotizar Pack de Movilidad</button>
                         </form>
                     </div>
                 </section>
             </div>
         </div>
-        <!-- Banner Navigation Dots -->
-        <div class="banner-controls" style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 10;">
-            <button class="banner-dot" onclick="goToBanner(0)" aria-label="Banner 1"></button>
-            <button class="banner-dot" onclick="goToBanner(1)" aria-label="Banner 2"></button>
-            <button class="banner-dot" onclick="goToBanner(2)" aria-label="Banner 3"></button>
-            <button class="banner-dot active" onclick="goToBanner(3)" aria-label="Banner 4"></button>
-        </div>
+        <a href="#conoce-mas" class="banner-conoce-mas">
+            CONOCE MÁS
+            <span aria-hidden="true">↓</span>
+        </a>
     </section>
 
     <!-- Sección Conoce Más -->

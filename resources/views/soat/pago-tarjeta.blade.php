@@ -435,7 +435,7 @@
     <header class="top">
         <div class="top-inner">
             <a href="{{ route('welcome') }}">
-                <x-site-logo variant="azul" class="logo-image block max-h-11 w-auto object-contain" />
+                <x-site-header-brand variant="azul" logo-class="logo-image block max-h-11 w-auto object-contain" />
             </a>
             <div class="badge-secure" title="Conexión cifrada">
                 <span aria-hidden="true">🔒</span>

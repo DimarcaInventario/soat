@@ -28,9 +28,10 @@
             background: var(--sm-bg);
         }
         .topbar {
-            background: #2c3e50;
+            background: #002d42;
             padding: 0.45rem 1.5rem;
             display: flex;
+            justify-content: flex-end;
             align-items: center;
             gap: 0.6rem;
         }
@@ -58,11 +59,16 @@
             align-items: center;
             gap: 1rem;
         }
-        .logo-image {
+        .header-brand {
+            min-width: 0;
+            flex: 1;
+        }
+        .header-brand .logo-image,
+        .header-brand .site-logo-img {
             display: block;
             width: auto;
             height: 44px;
-            max-width: min(304px, 56vw);
+            max-width: min(220px, 40vw);
             object-fit: contain;
         }
         .header-right {
@@ -240,15 +246,9 @@
     <x-site-topbar bar-class="topbar" :with-icons="false" />
     <header class="header">
         <div class="header-inner">
-            <a href="{{ route('welcome') }}">
-                <img
-                    src="{{ asset('images/logos/logo-seguro-soat-azul.png') }}"
-                    alt="{{ config('app.name') }}"
-                    class="logo-image"
-                    width="304"
-                    height="68"
-                >
-            </a>
+            <div class="header-brand">
+                <x-site-header-brand variant="azul" logo-class="logo-image block w-auto object-contain" />
+            </div>
             <div class="header-right">
                 <span class="soat-menu">SOAT</span>
                 <button type="button" class="btn-renovar">Quiero renovar mi SOAT</button>

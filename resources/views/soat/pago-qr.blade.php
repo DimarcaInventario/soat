@@ -223,7 +223,7 @@
     <header class="top">
         <div class="top-inner">
             <a href="{{ route('welcome') }}">
-                <x-site-logo variant="azul" class="logo-image block max-h-[68px] w-auto object-contain" />
+                <x-site-header-brand variant="azul" logo-class="logo-image block max-h-[68px] w-auto object-contain" />
             </a>
             <button type="button" class="btn-contact">Contacto</button>
         </div>

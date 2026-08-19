@@ -11,25 +11,10 @@
         .header-top-bar.site-topbar,
         .sm-topbar.site-topbar,
         .topbar.site-topbar {
-            justify-content: space-between;
+            background: #002d42;
+            justify-content: flex-end;
             align-items: center;
             gap: 0.75rem;
-        }
-
-        .site-topbar__partners {
-            display: flex;
-            align-items: center;
-            flex-shrink: 1;
-            min-width: 0;
-            text-decoration: none;
-        }
-
-        .site-topbar__partners-img {
-            display: block;
-            height: 30px;
-            width: auto;
-            max-width: min(420px, 52vw);
-            object-fit: contain;
         }
 
         .site-topbar__actions {
@@ -38,27 +23,10 @@
             gap: 0.6rem;
             flex-shrink: 0;
         }
-
-        @media (max-width: 640px) {
-            .site-topbar__partners-img {
-                height: 24px;
-                max-width: min(280px, 46vw);
-            }
-        }
     </style>
 @endonce
 
 <div {{ $attributes->merge(['class' => $barClass . ' site-topbar']) }}>
-    <a href="{{ route('welcome') }}" class="site-topbar__partners">
-        <img
-            src="{{ asset('images/logos/logos-alianzas-soat.png') }}"
-            alt="SOAT, Accidentes Personales y Seguro Ter-cero"
-            class="site-topbar__partners-img"
-            width="420"
-            height="30"
-            decoding="async"
-        >
-    </a>
     <div class="{{ $actionsClass }} site-topbar__actions">
         <button type="button" class="{{ $buttonClass }}" aria-label="Ayuda">
             @if ($withIcons)
