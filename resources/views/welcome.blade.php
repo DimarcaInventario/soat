@@ -1661,76 +1661,72 @@
 
         /* Sección Conoce Más */
         .conoce-mas-section {
-            background: white;
-            padding: 4rem 2rem;
+            background: #fff;
+            padding: 3rem 2rem 4rem;
             width: 100%;
         }
 
         .conoce-mas-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            align-items: stretch;
+            gap: 2.5rem 2rem;
+            align-items: start;
         }
 
         .conoce-mas-item {
             display: flex;
             flex-direction: column;
-            background: white;
-            border-radius: 0;
-            overflow: visible;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            text-align: center;
+            background: transparent;
+            box-shadow: none;
         }
 
         .conoce-mas-image-wrapper {
             width: 100%;
-            overflow: hidden;
-            background: transparent;
-            min-height: 200px;
+            min-height: 220px;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .conoce-mas-item:first-child .conoce-mas-image-wrapper {
-            min-height: 250px;
+            margin-bottom: 1.25rem;
         }
 
         .conoce-mas-image {
-            width: 100%;
+            width: auto;
+            max-width: min(100%, 280px);
             height: auto;
+            max-height: 220px;
             object-fit: contain;
             display: block;
-            mix-blend-mode: screen;
         }
 
         .conoce-mas-content {
-            padding: 0;
+            padding: 0 0.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
 
         .conoce-mas-title {
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: #003087;
-            margin: 0 0 1rem 0;
+            margin: 0 0 0.75rem 0;
             line-height: 1.3;
         }
 
         .conoce-mas-text {
             flex-grow: 1;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
 
         .conoce-mas-text p {
-            font-size: 1rem;
-            color: #666;
-            line-height: 1.6;
+            font-size: 0.98rem;
+            color: #003087;
+            line-height: 1.55;
             margin: 0;
         }
 
@@ -1738,12 +1734,11 @@
             background: transparent;
             border: 2px solid #0094D2;
             color: #0094D2;
-            padding: 0.75rem 1.5rem;
+            padding: 0.65rem 1.35rem;
             border-radius: 4px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             cursor: pointer;
-            align-self: flex-start;
             margin-top: auto;
         }
 
@@ -1770,27 +1765,27 @@
                 grid-template-columns: 88px 1fr;
                 grid-template-rows: auto auto;
                 align-items: start;
+                text-align: left;
                 gap: 0.45rem 0.75rem;
                 padding: 0.85rem;
                 border-radius: 10px;
                 box-shadow: 0 1px 4px rgba(0, 52, 89, 0.08);
+                background: #fff;
             }
 
             .conoce-mas-image-wrapper {
                 grid-row: 1 / span 2;
                 flex: none;
                 width: 88px;
-                min-height: 0;
+                min-height: 88px;
                 margin-bottom: 0;
-            }
-
-            .conoce-mas-item:first-child .conoce-mas-image-wrapper {
-                min-height: 0;
             }
 
             .conoce-mas-image {
                 width: 88px;
                 height: 88px;
+                max-height: 88px;
+                max-width: 88px;
                 object-fit: contain;
             }
 
@@ -1798,6 +1793,7 @@
                 grid-column: 2;
                 flex: none;
                 min-width: 0;
+                align-items: flex-start;
             }
 
             .conoce-mas-title {
@@ -2469,7 +2465,7 @@
         <div class="conoce-mas-container">
             <div class="conoce-mas-item">
                 <div class="conoce-mas-image-wrapper">
-                    <img src="{{ asset('images/conoce-mas/pack-movilidad.png') }}" alt="Pack de Movilidad" class="conoce-mas-image" width="330" height="292" loading="lazy" decoding="async">
+                    <img src="{{ asset('images/conoce-mas/pack-movilidad.png?v=2') }}" alt="Pack de Movilidad" class="conoce-mas-image" width="280" height="220" loading="lazy" decoding="async">
                 </div>
                 <div class="conoce-mas-content">
                     <h2 class="conoce-mas-title">Compra tu Pack de Movilidad</h2>
@@ -2482,7 +2478,7 @@
 
             <div class="conoce-mas-item">
                 <div class="conoce-mas-image-wrapper">
-                    <img src="{{ asset('images/conoce-mas/consulta-poliza.png') }}" alt="imagen miniatura" class="conoce-mas-image" width="330" height="292" loading="lazy" decoding="async">
+                    <img src="{{ asset('images/conoce-mas/consulta-poliza.png?v=2') }}" alt="imagen miniatura" class="conoce-mas-image" width="280" height="220" loading="lazy" decoding="async">
                 </div>
                 <div class="conoce-mas-content">
                     <h2 class="conoce-mas-title">¿Necesitas tu póliza?</h2>
@@ -2495,7 +2491,7 @@
 
             <div class="conoce-mas-item">
                 <div class="conoce-mas-image-wrapper">
-                    <img src="{{ asset('images/conoce-mas/seguro-tercero.png') }}" alt="segurotercero" class="conoce-mas-image" width="330" height="292" loading="lazy" decoding="async">
+                    <img src="{{ asset('images/conoce-mas/seguro-tercero.png?v=2') }}" alt="segurotercero" class="conoce-mas-image" width="280" height="220" loading="lazy" decoding="async">
                 </div>
                 <div class="conoce-mas-content">
                     <h2 class="conoce-mas-title">¿Ya conoces Seguro Tercero?</h2>
