@@ -1704,6 +1704,7 @@
             height: auto;
             object-fit: contain;
             display: block;
+            mix-blend-mode: screen;
         }
 
         .conoce-mas-content {
@@ -2466,10 +2467,9 @@
     <!-- Sección Conoce Más -->
     <section id="conoce-mas" class="conoce-mas-section">
         <div class="conoce-mas-container">
-            <!-- Tarjeta 1: Pack de Movilidad -->
             <div class="conoce-mas-item">
                 <div class="conoce-mas-image-wrapper">
-                    <img src="https://images.ctfassets.net/kns4trabzb3r/5DSoEietutR5fHuONzqivB/68453fb4facd06cba0e653cd7a633ca2/Image-beneficios-body1_3x.png?w=330&h=292&q=50&fm=webp" alt="Imagen club beneficios" class="conoce-mas-image" width="330" height="292" loading="lazy" decoding="async">
+                    <img src="{{ asset('images/conoce-mas/pack-movilidad.png') }}" alt="Pack de Movilidad" class="conoce-mas-image" width="330" height="292" loading="lazy" decoding="async">
                 </div>
                 <div class="conoce-mas-content">
                     <h2 class="conoce-mas-title">Compra tu Pack de Movilidad</h2>
@@ -2480,10 +2480,9 @@
                 <button class="conoce-mas-button" type="button">Más información</button>
             </div>
 
-            <!-- Tarjeta 2: Consulta de póliza -->
             <div class="conoce-mas-item">
                 <div class="conoce-mas-image-wrapper">
-                    <img src="https://images.ctfassets.net/kns4trabzb3r/olVjjaqFvZwDIZRf8JvMr/ae9db47a26ac5e01dc897aa26101ee85/consulta-y-descarga-de-po__liza.png?w=330&h=292&q=50&fm=webp" alt="imagen miniatura" class="conoce-mas-image">
+                    <img src="{{ asset('images/conoce-mas/consulta-poliza.png') }}" alt="imagen miniatura" class="conoce-mas-image" width="330" height="292" loading="lazy" decoding="async">
                 </div>
                 <div class="conoce-mas-content">
                     <h2 class="conoce-mas-title">¿Necesitas tu póliza?</h2>
@@ -2494,10 +2493,9 @@
                 <button class="conoce-mas-button" type="button">Más información</button>
             </div>
 
-            <!-- Tarjeta 3: Seguro Tercero -->
             <div class="conoce-mas-item">
                 <div class="conoce-mas-image-wrapper">
-                    <img src="https://images.ctfassets.net/kns4trabzb3r/6BRnAbl4prhavhKFXkrp1T/8fb2ef51095f61b32464b098b90998fa/segurotercero.png?w=330&h=292&q=50&fm=webp" alt="segurotercero" class="conoce-mas-image">
+                    <img src="{{ asset('images/conoce-mas/seguro-tercero.png') }}" alt="segurotercero" class="conoce-mas-image" width="330" height="292" loading="lazy" decoding="async">
                 </div>
                 <div class="conoce-mas-content">
                     <h2 class="conoce-mas-title">¿Ya conoces Seguro Tercero?</h2>
@@ -2577,7 +2575,7 @@
     </section>
 
     <!-- Sección Amparos del SOAT -->
-    <section id="conoce-mas" class="amparos-section">
+    <section class="amparos-section">
         <div class="amparos-content-wrapper">
             <div class="amparos-wrapper-text">
                 <h2 class="amparos-title">Amparos del SOAT</h2>
