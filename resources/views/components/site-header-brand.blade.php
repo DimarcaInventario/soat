@@ -5,7 +5,7 @@
 ])
 
 @php
-    $partnersImage = $partnersSrc ?: asset('images/logos/logos-productos-hq.png');
+    $partnersImage = $partnersSrc ?: asset('images/logos/logos-productos.png');
 @endphp
 
 @once

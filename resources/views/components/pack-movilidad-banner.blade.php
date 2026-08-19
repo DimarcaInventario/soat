@@ -183,7 +183,7 @@
 
     <figure class="pack-banner__hero">
         <img
-            src="{{ asset('images/banners/pack-movilidad-hero-hq.png') }}"
+            src="{{ asset('images/banners/pack-movilidad-sinfondo.png') }}"
             alt="Pack de Movilidad Mundial: SOAT, Accidentes Personales y Seguro Ter-cero"
             width="760"
             height="520"
