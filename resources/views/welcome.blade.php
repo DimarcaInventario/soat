@@ -2136,6 +2136,143 @@
             }
         }
 
+        /* Sección Otras Pólizas */
+        .otras-polizas-section {
+            position: relative;
+            background: #00a4dc;
+            padding: 4rem 2rem 4.5rem;
+            overflow: hidden;
+        }
+
+        .otras-polizas-decor {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .otras-polizas-decor img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            mix-blend-mode: screen;
+        }
+
+        .otras-polizas-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .otras-polizas-title {
+            font-family: Ubuntu, 'Open Sans', sans-serif;
+            font-size: clamp(1.75rem, 3vw, 2.35rem);
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin: 0 0 2.5rem;
+            line-height: 1.2;
+        }
+
+        .otras-polizas-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .otras-polizas-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 45, 66, 0.12);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .otras-polizas-card-image {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            display: block;
+        }
+
+        .otras-polizas-card-body {
+            padding: 1.5rem 1.75rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .otras-polizas-card-title {
+            font-family: Ubuntu, 'Open Sans', sans-serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #003087;
+            margin: 0 0 1rem;
+            line-height: 1.25;
+        }
+
+        .otras-polizas-card-text {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.65;
+            margin: 0 0 1.5rem;
+            flex-grow: 1;
+        }
+
+        .otras-polizas-card-text strong {
+            color: #003087;
+            font-weight: 700;
+        }
+
+        .otras-polizas-card-button {
+            display: inline-block;
+            align-self: flex-start;
+            background: #fff;
+            border: 2px solid #0094D2;
+            color: #0094D2;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .otras-polizas-card-button:hover {
+            background: #0094D2;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .otras-polizas-section {
+                padding: 2.5rem 1rem 3rem;
+            }
+
+            .otras-polizas-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .otras-polizas-title {
+                margin-bottom: 1.75rem;
+            }
+
+            .otras-polizas-card-body {
+                padding: 1.15rem 1.25rem 1.35rem;
+            }
+
+            .otras-polizas-card-title {
+                font-size: 1.2rem;
+            }
+
+            .otras-polizas-card-text {
+                font-size: 0.92rem;
+            }
+        }
+
         /* Sección blog / recursos */
         .blog-section {
             background: #f5f5f5;
@@ -2610,6 +2747,55 @@
                     <span class="amparos-dot" onclick="goToAmparoSlide(2)"></span>
                     <span class="amparos-dot" onclick="goToAmparoSlide(3)"></span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Otras Pólizas -->
+    <section class="otras-polizas-section">
+        <div class="otras-polizas-decor" aria-hidden="true">
+            <img src="{{ asset('images/otras-polizas/decoracion.png') }}" alt="">
+        </div>
+        <div class="otras-polizas-inner">
+            <h2 class="otras-polizas-title">Conoce nuestras otras pólizas</h2>
+            <div class="otras-polizas-grid">
+                <article class="otras-polizas-card">
+                    <img
+                        src="{{ asset('images/otras-polizas/seguro-arrendamiento.png') }}"
+                        alt="Seguro Arrendamiento - Arriendos Mundial"
+                        class="otras-polizas-card-image"
+                        width="855"
+                        height="414"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                    <div class="otras-polizas-card-body">
+                        <h3 class="otras-polizas-card-title">Seguro Arrendamiento</h3>
+                        <p class="otras-polizas-card-text">
+                            El Seguro de Arrendamiento es la solución ideal para propietarios e inmobiliarias que buscan <strong>proteger su patrimonio</strong> y asegurar el cumplimiento de las obligaciones de sus arrendatarios.
+                        </p>
+                        <a class="otras-polizas-card-button" href="https://www.arrendosmundial.com/" target="_blank" rel="noreferrer">Conoce más</a>
+                    </div>
+                </article>
+
+                <article class="otras-polizas-card">
+                    <img
+                        src="{{ asset('images/otras-polizas/seguro-peludo.png') }}"
+                        alt="Seguro Peludo"
+                        class="otras-polizas-card-image"
+                        width="725"
+                        height="352"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                    <div class="otras-polizas-card-body">
+                        <h3 class="otras-polizas-card-title">Seguro Peludo</h3>
+                        <p class="otras-polizas-card-text">
+                            El Seguro Peludo es un producto exclusivo para perros y gatos que brinda <strong>protección médica</strong> a tu peludo en caso de accidentes o enfermedades.
+                        </p>
+                        <a class="otras-polizas-card-button" href="https://www.seguropeludo.com/" target="_blank" rel="noreferrer">Conoce más</a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
