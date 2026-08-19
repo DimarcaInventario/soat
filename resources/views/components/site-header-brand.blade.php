@@ -5,7 +5,7 @@
 ])
 
 @php
-    $partnersImage = $partnersSrc ?: asset('images/logos/logos-productos.png');
+    $partnersImage = $partnersSrc ?: asset('images/logos/logos-productos-hq.png');
 @endphp
 
 @once
@@ -45,8 +45,9 @@
             display: block;
             height: 46px;
             width: auto;
-            max-width: min(340px, 34vw);
+            max-width: min(360px, 36vw);
             object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
         }
 
         @media (max-width: 768px) {

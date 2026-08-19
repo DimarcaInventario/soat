@@ -80,6 +80,7 @@
             height: auto;
             object-fit: contain;
             object-position: bottom right;
+            image-rendering: -webkit-optimize-contrast;
         }
 
         @media (max-width: 1280px) {
@@ -182,7 +183,7 @@
 
     <figure class="pack-banner__hero">
         <img
-            src="{{ asset('images/banners/pack-movilidad-sinfondo.png') }}"
+            src="{{ asset('images/banners/pack-movilidad-hero-hq.png') }}"
             alt="Pack de Movilidad Mundial: SOAT, Accidentes Personales y Seguro Ter-cero"
             width="760"
             height="520"
