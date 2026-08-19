@@ -2141,13 +2141,12 @@
             position: relative;
             background-color: #0078b3;
             background-image:
-                url("{{ asset('images/otras-polizas/decoracion.png?v=4') }}"),
+                url("{{ asset('images/otras-polizas/decoracion.png?v=5') }}"),
                 radial-gradient(circle at 50% 12%, rgba(130, 225, 255, 0.85) 0%, rgba(130, 225, 255, 0) 58%),
                 linear-gradient(180deg, #00c4ff 0%, #0094d2 48%, #006da8 100%);
             background-size: cover, cover, cover;
             background-position: center top, center, center;
             background-repeat: no-repeat;
-            background-blend-mode: screen, normal, normal;
             padding: 4rem 2rem 4.5rem;
             overflow: hidden;
         }
