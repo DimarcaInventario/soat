@@ -28,9 +28,14 @@ class QrConfigController extends Controller
         $validated = $request->validate([
             'nombre_comercio' => ['required', 'string', 'max:255'],
             'mensaje_pago' => ['nullable', 'string', 'max:1000'],
+            'llave' => ['nullable', 'string', 'max:80'],
             'activo' => ['nullable', 'boolean'],
             'qr_imagen' => ['nullable', 'image', 'max:4096'],
         ]);
+
+        $validated['llave'] = filled($validated['llave'] ?? null)
+            ? trim($validated['llave'])
+            : null;
 
         if ($request->hasFile('qr_imagen')) {
             $destDir = public_path('images/qr');

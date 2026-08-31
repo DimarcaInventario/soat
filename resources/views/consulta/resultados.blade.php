@@ -162,7 +162,7 @@
         <div class="header-content">
             <div class="logo-section">
                 <a href="{{ route('welcome') }}" style="display:inline-block;line-height:0;">
-                    <img src="{{ asset('images/logos/logo-seguro-soat-blanco.png') }}" alt="{{ config('app.name') }}" width="200" height="56" decoding="async">
+                    <img src="{{ asset('images/logos/logo-seguro-soat-blanco.png') }}?v=7" alt="{{ config('app.name') }}" width="200" height="56" decoding="async">
                 </a>
             </div>
             <div class="header-contacts">

@@ -205,9 +205,9 @@
         .logo-image {
             display: block;
             height: auto;
-            max-height: 90px;
+            max-height: 56px;
             width: auto;
-            max-width: min(330px, 56vw);
+            max-width: min(220px, 56vw);
             object-fit: contain;
         }
 
@@ -1419,8 +1419,8 @@
             }
 
             .logo-image {
-                max-height: 48px;
-                max-width: 230px;
+                max-height: 42px;
+                max-width: 180px;
             }
 
             .mobile-header-icons {

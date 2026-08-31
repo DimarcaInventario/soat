@@ -11,7 +11,7 @@
 @endphp
 
 <img
-    src="{{ $src }}"
+    src="{{ $src }}?v=7"
     alt="{{ $alt }}"
     {{ $attributes->merge(['class' => 'site-logo-img']) }}
     decoding="async"

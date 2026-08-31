@@ -95,7 +95,7 @@
         <div class="mb-8 text-center">
             <a href="{{ route('welcome') }}" class="inline-block" aria-label="{{ config('app.name', 'Seguro SOAT') }} — inicio">
                 <img
-                    src="{{ asset('images/logos/logo-seguro-soat-blanco.png') }}"
+                    src="{{ asset('images/logos/logo-seguro-soat-blanco.png') }}?v=7"
                     alt="{{ config('app.name', 'Seguro SOAT') }}"
                     class="guest-soat__brand-logo"
                     width="280"

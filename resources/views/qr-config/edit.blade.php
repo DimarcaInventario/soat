@@ -48,6 +48,19 @@
                 </div>
 
                 <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Llave de pago (Bre-B)</label>
+                    <input
+                        type="text"
+                        name="llave"
+                        value="{{ old('llave', $config->llave) }}"
+                        maxlength="80"
+                        placeholder="Ej: 0092919929"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                    <p class="mt-2 text-sm text-gray-500">Se muestra en la página de pago QR para que el cliente la copie. Déjala vacía para ocultar esa opción.</p>
+                </div>
+
+                <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Imagen QR (PNG/JPG/WebP)</label>
                     <input
                         type="file"

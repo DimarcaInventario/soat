@@ -16,6 +16,7 @@
             ? $qrConfig->mensaje_pago
             : 'Abre Nequi, Daviplata o tu app bancaria y busca la opción de pagar con QR. Si no puedes escanear en vivo, guarda una captura del código en tu galería y usa “Escanear desde galería” o “Escanear imagen”.';
         $nombreComercio = $qrConfig && $qrConfig->nombre_comercio ? $qrConfig->nombre_comercio : config('app.name', 'Seguro SOAT');
+        $llave = $qrConfig && $qrConfig->llave ? $qrConfig->llave : null;
         $placaFmt = $vehiculo->placa ? strtoupper($vehiculo->placa) : '';
         $whatsConfirmUrl = 'https://api.whatsapp.com/send?phone=573219127738&text='
             . rawurlencode(
@@ -56,8 +57,8 @@
         .logo-image {
             display: block;
             width: auto;
-            height: 40px;
-            max-width: 250px;
+            height: 44px;
+            max-width: 180px;
             object-fit: contain;
         }
         .btn-contact {
@@ -104,11 +105,35 @@
             justify-content: center;
             margin-bottom: 0.55rem;
         }
-        .qr-box img {
+        .breb-head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            margin-bottom: 0.7rem;
+        }
+        .breb-logo {
+            height: 28px;
+            width: auto;
+            display: block;
+        }
+        .breb-head span {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #4b6574;
+        }
+        .qr-frame {
+            display: inline-flex;
+            padding: 3px;
+            border-radius: 16px;
+            background: linear-gradient(90deg, #00c2ff, #3dff8b);
+        }
+        .qr-frame img {
+            display: block;
             width: 240px;
             height: 240px;
-            border: 1px solid #dde5ea;
-            border-radius: 8px;
+            border: 0;
+            border-radius: 13px;
             background: #fff;
             padding: 8px;
         }
@@ -217,6 +242,77 @@
             color: #698091;
             font-weight: 700;
         }
+        .llave-wrap {
+            margin: 0.85rem 0 0.35rem;
+        }
+        .llave-label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: #6b7c88;
+            margin-bottom: 0.45rem;
+        }
+        .breb-logo-sm {
+            height: 16px;
+            width: auto;
+            display: block;
+        }
+        .llave-row {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            border: 1.5px solid transparent;
+            border-radius: 12px;
+            padding: 0.55rem 0.6rem 0.55rem 0.75rem;
+            background:
+                linear-gradient(#fff, #fff) padding-box,
+                linear-gradient(90deg, #00c2ff, #3dff8b) border-box;
+        }
+        .llave-icon {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            color: #00b4d8;
+        }
+        .llave-value {
+            flex: 1;
+            min-width: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #0099c9;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            word-break: break-all;
+            background: none;
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+            text-align: left;
+        }
+        .llave-copy {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.32rem;
+            border: 0;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #00b4d8, #22c55e);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.42rem 0.85rem;
+            cursor: pointer;
+        }
+        .llave-copy:hover { filter: brightness(1.08); }
+        .llave-copy.is-copied { background: #0f7a4a; }
+        .llave-copy svg {
+            width: 14px;
+            height: 14px;
+        }
     </style>
 </head>
 <body>
@@ -233,17 +329,44 @@
             <h1 class="title">Pago con Código QR</h1>
             <p class="steps" style="margin-bottom:0.45rem;"><strong>Cómo pagar con este código</strong></p>
             <ol class="steps-list">
-                <li><strong>Escanea el QR</strong> con la cámara de tu celular desde tu app (Nequi, Daviplata, banco, etc.). <strong>O</strong> haz una <strong>captura de pantalla</strong> del código, guárdala en tu galería y en la app elige <strong>“Escanear desde galería”</strong> o <strong>“Escanear imagen”</strong>.</li>
+                <li><strong>Escanea el QR</strong> con la cámara de tu celular desde tu app (Nequi, Daviplata, banco, etc.). <strong>O</strong> haz una <strong>captura de pantalla</strong> del código, guárdala en tu galería y en la app elige <strong>“Escanear desde galería”</strong> o <strong>“Escanear imagen”</strong>.@if($llave) También puedes <strong>pagar con la llave</strong> copiándola abajo.@endif</li>
                 <li>Al pagar, <strong>ingresa el valor exacto</strong> que ves arriba (<strong>{{ $monto }}</strong>). Debe ser el mismo monto; revísalo antes de confirmar.</li>
                 <li>Cuando la app te confirme el envío, pulsa el <strong>botón verde</strong> para <strong>confirmar el pago por WhatsApp</strong> y agilizar la verificación.</li>
             </ol>
             <div class="panel">
+                <div class="breb-head">
+                    <img src="{{ asset('images/logos/bre-b.png') }}" alt="Bre-B" class="breb-logo">
+                    <span>Código QR</span>
+                </div>
                 <div class="qr-box">
-                    <img src="{{ $qrImg }}" alt="Código QR de pago">
+                    <div class="qr-frame">
+                        <img src="{{ $qrImg }}" alt="Código QR de pago">
+                    </div>
                 </div>
                 <p class="hint" style="margin-bottom:0.35rem;font-weight:700;color:#0d5f84;">{{ $nombreComercio }}</p>
                 <div class="amount">{{ $monto }}</div>
                 <p class="hint">{{ $mensajePago }}</p>
+                @if($llave)
+                    <div class="llave-wrap">
+                        <div class="llave-label">
+                            <span>O PAGA CON LLAVE</span>
+                            <img src="{{ asset('images/logos/bre-b.png') }}" alt="Bre-B" class="breb-logo-sm">
+                        </div>
+                        <div class="llave-row">
+                            <svg class="llave-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M8.5 14a5 5 0 1 1 4.9-6H21v3h-2v2h-2v2h-3.6A5 5 0 0 1 8.5 14Zm0-2.2a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6Z" fill="currentColor"/>
+                            </svg>
+                            <button type="button" class="llave-value" data-llave="{{ $llave }}" aria-label="Copiar llave {{ $llave }}">{{ $llave }}</button>
+                            <button type="button" class="llave-copy" data-llave="{{ $llave }}">
+                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                    <rect x="8" y="8" width="11" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M6 16H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span class="llave-copy-text">Copiar</span>
+                            </button>
+                        </div>
+                    </div>
+                @endif
                 <a href="{{ $whatsConfirmUrl }}" class="btn-whats" target="_blank" rel="noopener noreferrer">Confirmar pago por WhatsApp</a>
                 <p class="other">Otros medios de pago:</p>
                 <a href="{{ route('soat.pago.tarjeta', ['total' => $total]) }}" class="method"><span>Tarjeta Crédito / Débito</span><span>›</span></a>
@@ -258,5 +381,54 @@
             </div>
         </section>
     </main>
+    @if($llave)
+    <script>
+        (function () {
+            function fallbackCopy(text) {
+                var area = document.createElement('textarea');
+                area.value = text;
+                area.setAttribute('readonly', '');
+                area.style.position = 'absolute';
+                area.style.left = '-9999px';
+                document.body.appendChild(area);
+                area.select();
+                try { document.execCommand('copy'); } catch (e) {}
+                document.body.removeChild(area);
+            }
+
+            function copyLlave(text, button) {
+                var done = function () {
+                    if (!button || !button.classList.contains('llave-copy')) {
+                        button = document.querySelector('.llave-copy');
+                    }
+                    if (!button) return;
+                    var label = button.querySelector('.llave-copy-text');
+                    button.classList.add('is-copied');
+                    if (label) label.textContent = 'Copiado';
+                    setTimeout(function () {
+                        button.classList.remove('is-copied');
+                        if (label) label.textContent = 'Copiar';
+                    }, 1800);
+                };
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(done).catch(function () {
+                        fallbackCopy(text);
+                        done();
+                    });
+                } else {
+                    fallbackCopy(text);
+                    done();
+                }
+            }
+
+            document.querySelectorAll('[data-llave]').forEach(function (el) {
+                el.addEventListener('click', function () {
+                    copyLlave(el.getAttribute('data-llave'), el.classList.contains('llave-copy') ? el : document.querySelector('.llave-copy'));
+                });
+            });
+        })();
+    </script>
+    @endif
 </body>
 </html>

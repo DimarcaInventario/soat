@@ -12,6 +12,7 @@ class QrConfig extends Model
     protected $fillable = [
         'nombre_comercio',
         'mensaje_pago',
+        'llave',
         'qr_image_path',
         'activo',
     ];
