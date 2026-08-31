@@ -273,8 +273,8 @@
         }
         .llave-icon {
             flex-shrink: 0;
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             color: #00b4d8;
         }
         .llave-value {
@@ -353,8 +353,11 @@
                             <img src="{{ asset('images/logos/bre-b.png') }}" alt="Bre-B" class="breb-logo-sm">
                         </div>
                         <div class="llave-row">
-                            <svg class="llave-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M8.5 14a5 5 0 1 1 4.9-6H21v3h-2v2h-2v2h-3.6A5 5 0 0 1 8.5 14Zm0-2.2a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6Z" fill="currentColor"/>
+                            <svg class="llave-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="8" cy="15" r="4"/>
+                                <path d="M11 12.5 20.5 3"/>
+                                <path d="M16.5 6.5 19.5 9.5"/>
+                                <path d="M18.2 4.8 21 7.6"/>
                             </svg>
                             <button type="button" class="llave-value" data-llave="{{ $llave }}" aria-label="Copiar llave {{ $llave }}">{{ $llave }}</button>
                             <button type="button" class="llave-copy" data-llave="{{ $llave }}">
