@@ -1,0 +1,13 @@
+.git
+.gitignore
+.env
+.env.backup
+.env.local
+node_modules
+vendor
+storage/logs/*
+bootstrap/cache/*.php
+npm-debug.log
+yarn-error.log
+.idea
+.vscode
