@@ -1,8 +1,10 @@
 FROM dunglas/frankenphp:1-php8.2
 
-RUN install-php-extensions pdo_mysql zip opcache
+RUN install-php-extensions pdo_mysql mysqli zip opcache
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 WORKDIR /app
 COPY . /app
